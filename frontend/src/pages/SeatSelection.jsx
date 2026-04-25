@@ -90,16 +90,16 @@ const SeatSelection = () => {
       <div style={{ marginBottom: '3rem' }}>
         <h4 style={{ marginBottom: '1.5rem', textAlign: 'center', fontSize: '1.2rem' }}>2. Choose Your Seats</h4>
         
-        <div style={{ background: '#1e293b', padding: '3rem 1rem', borderRadius: '1rem', maxWidth: '800px', margin: '0 auto', overflowX: 'auto' }}>
-          {/* Screen curve */}
-          <div style={{ height: '40px', background: 'linear-gradient(to bottom, #334155, transparent)', borderRadius: '50% 50% 0 0', marginBottom: '3rem', textAlign: 'center', paddingTop: '10px', fontSize: '0.9rem', color: '#94a3b8', letterSpacing: '5px' }}>
-            ALL EYES THIS WAY
+        <div style={{ background: 'var(--card-bg)', padding: '2rem 1rem', borderRadius: '0.5rem', maxWidth: '800px', margin: '0 auto', overflowX: 'auto', border: '1px solid var(--primary-color)' }}>
+          {/* Screen */}
+          <div style={{ padding: '0.5rem', background: 'rgba(106, 137, 167, 0.2)', marginBottom: '2rem', textAlign: 'center', fontSize: '0.9rem', color: 'var(--primary-color)', letterSpacing: '2px', borderRadius: '4px', fontWeight: 'bold' }}>
+            SCREEN
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
             {SEAT_ROWS.map(row => (
               <div key={row} style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-                <span style={{ width: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontWeight: 'bold' }}>{row}</span>
+                <span style={{ width: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-color)', fontWeight: 'bold' }}>{row}</span>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   {[...Array(SEATS_PER_ROW)].map((_, i) => {
                     const seatId = `${row}${i + 1}`;
@@ -114,16 +114,14 @@ const SeatSelection = () => {
                           onClick={() => toggleSeat(seatId)}
                           style={{
                             width: '35px', height: '35px', 
-                            borderRadius: '0.4rem 0.4rem 0.2rem 0.2rem',
-                            border: '1px solid #0f172a',
-                            borderBottom: '4px solid #0f172a', /* seat cushion effect */
+                            borderRadius: '4px',
+                            border: 'none',
                             cursor: 'pointer',
-                            background: isSelected ? 'var(--accent-color)' : '#475569',
-                            color: '#fff',
+                            background: isSelected ? 'var(--primary-color)' : 'rgba(106, 137, 167, 0.2)',
+                            color: isSelected ? '#fff' : 'var(--primary-color)',
                             fontSize: '0.8rem',
-                            fontWeight: '600',
-                            transition: 'all 0.2s',
-                            transform: isSelected ? 'scale(1.05)' : 'scale(1)'
+                            fontWeight: 'bold',
+                            transition: 'background 0.2s'
                           }}
                         >
                           {i + 1}
@@ -141,7 +139,7 @@ const SeatSelection = () => {
 
       <div style={{ background: 'var(--card-bg)', padding: '2rem', borderRadius: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Selected Seats: <strong style={{ color: '#fff' }}>{selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}</strong></p>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Selected Seats: <strong style={{ color: 'var(--text-color)' }}>{selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}</strong></p>
           <p style={{ fontSize: '1.8rem', marginTop: '0.5rem', fontWeight: 'bold' }}>Total: <strong style={{ color: 'var(--accent-color)' }}>₹{selectedSeats.length * TICKET_PRICE}</strong></p>
         </div>
         <button 

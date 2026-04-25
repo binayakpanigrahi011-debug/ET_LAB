@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
         <div>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-            <Film color="#ec4899" />
-            <span>Quick<span style={{ color: '#ec4899' }}>Show</span></span>
+            <Film color="var(--primary-color)" />
+            <span>Quick<span style={{ color: 'var(--primary-color)' }}>Show</span></span>
           </Link>
           <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
             Your premium destination for movie ticket bookings. Experience cinematic magic with real-time seat tracking and seamless bookings.
@@ -28,14 +28,14 @@ const Footer = () => {
 
         <div>
           <h4 style={{ fontSize: '1.1rem', marginBottom: '1rem', fontWeight: 600 }}>Connect With Us</h4>
-          <div style={{ display: 'flex', gap: '1rem', color: 'var(--text-muted)' }}>
-            <a href="#" style={{ padding: '0.5rem', background: '#334155', borderRadius: '50%', width:'36px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:'bold' }}>IG</a>
-            <a href="#" style={{ padding: '0.5rem', background: '#334155', borderRadius: '50%', width:'36px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:'bold' }}>X</a>
+          <div style={{ display: 'flex', gap: '1rem', color: 'var(--primary-color)' }}>
+            <a href="#" style={{ padding: '0.5rem', background: 'rgba(106, 137, 167, 0.2)', borderRadius: '50%', width:'36px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:'bold' }}>IG</a>
+            <a href="#" style={{ padding: '0.5rem', background: 'rgba(106, 137, 167, 0.2)', borderRadius: '50%', width:'36px', height:'36px', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:'bold' }}>X</a>
           </div>
         </div>
       </div>
       
-      <div className="container" style={{ textAlign: 'center', marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid #334155', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
+      <div className="container" style={{ textAlign: 'center', marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(106, 137, 167, 0.2)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
         &copy; {new Date().getFullYear()} QuickShow India. All rights reserved. Built as a mock application.
       </div>
     </footer>

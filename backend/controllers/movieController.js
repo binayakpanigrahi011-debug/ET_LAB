@@ -22,16 +22,29 @@ const getSingleMovie=async (req, res) => {
     }
   }
 
-const createMovie=async (req, res) => {
+const createMovie = async (req, res) => {
     try {
-      const { title, poster, duration, genre, showTimings } = req.body;
+      const { title, duration, genre, showTimings } = req.body;
+      
+      let posterUrl = '';
+      if (req.file && req.file.path) {
+        posterUrl = req.file.path;
+      } else {
+        return res.status(400).json({ message: 'Poster image is required' });
+      }
+
+      // If showTimings is sent as a comma-separated string from FormData, parse it
+      let parsedTimings = showTimings;
+      if (typeof showTimings === 'string') {
+        parsedTimings = showTimings.split(',').map(t => t.trim());
+      }
       
       const movie = new Movie({
         title,
-        poster,
+        poster: posterUrl,
         duration,
         genre,
-        showTimings
+        showTimings: parsedTimings
       });
   
       const createdMovie = await movie.save();

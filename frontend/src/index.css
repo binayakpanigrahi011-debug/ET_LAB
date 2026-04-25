@@ -1,12 +1,12 @@
 :root {
-  --primary-color: #6366f1; /* Indigo */
-  --primary-hover: #4f46e5;
-  --bg-color: #0f172a; /* Slate 900 */
-  --card-bg: #1e293b; /* Slate 800 */
-  --text-color: #f8fafc; /* Slate 50 */
-  --text-muted: #94a3b8; /* Slate 400 */
-  --accent-color: #ec4899; /* Pink */
-  --accent-hover: #db2777;
+  --primary-color: #6A89A7;
+  --primary-hover: #88BDF2;
+  --bg-color: #e8e8e8;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --text-color: #384959;
+  --text-muted: #6A89A7;
+  --accent-color: #88BDF2;
+  --accent-hover: #6A89A7;
 }
 
 * {
@@ -37,6 +37,11 @@ main {
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
 }
 
 ul {
@@ -55,64 +60,71 @@ ul {
   background: var(--primary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   border: none;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(106, 137, 167, 0.2);
 }
 
 .btn:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(106, 137, 167, 0.3);
+  color: var(--text-color);
 }
 
 .btn-accent {
   background: var(--accent-color);
+  color: var(--text-color);
 }
 
 .btn-accent:hover {
-  background: var(--accent-hover);
+  background: var(--primary-hover);
 }
 
 .btn-outline {
   background: transparent;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
+  box-shadow: none;
 }
 
 .btn-outline:hover {
   background: var(--primary-hover);
-  color: #fff;
+  color: var(--text-color);
+  border-color: var(--primary-hover);
 }
 
 .input-field {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid #334155;
-  background-color: #0f172a;
-  color: #fff;
-  border-radius: 0.5rem;
-  transition: border-color 0.3s ease;
+  border: 1px solid var(--primary-color);
+  background-color: #fff;
+  color: var(--text-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .input-field:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 0 3px rgba(136, 189, 242, 0.3);
 }
 
 .card {
   background: var(--card-bg);
-  border-radius: 1rem;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 6px -1px rgba(56, 73, 89, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(56, 73, 89, 0.15);
 }
 
 .form-container {
@@ -120,8 +132,8 @@ ul {
   margin: 4rem auto;
   padding: 2rem;
   background: var(--card-bg);
-  border-radius: 1rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(56, 73, 89, 0.1);
 }
 
 .form-title {
@@ -129,13 +141,14 @@ ul {
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: var(--text-color);
 }
 
 .error-msg {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.1);
   padding: 0.75rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   margin-bottom: 1rem;
   text-align: center;
   font-size: 0.875rem;
@@ -143,8 +156,15 @@ ul {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
@@ -155,10 +175,9 @@ ul {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 4rem); /* Viewport height minus navbar height */
+  height: calc(100vh - 4rem);
   overflow: hidden;
   margin-bottom: 3rem;
-  /* Removed border radius and box shadow for edge-to-edge look */
 }
 
 .carousel-slide {
@@ -183,7 +202,7 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.3) 50%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to top, rgba(189, 221, 252, 1) 0%, rgba(189, 221, 252, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .carousel-content {
@@ -206,43 +225,23 @@ ul {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(106, 137, 167, 0.4);
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .indicator.active {
-  background: var(--accent-color);
+  background: var(--primary-color);
 }
 
 /* Ticket Stub Style */
 .ticket-stub {
   display: flex;
   background: var(--card-bg);
-  border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-  position: relative;
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
   overflow: hidden;
-}
-
-.ticket-stub::before, .ticket-stub::after {
-  content: '';
-  position: absolute;
-  background: var(--bg-color);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.ticket-stub::before {
-  left: -15px;
-}
-
-.ticket-stub::after {
-  right: 235px; /* adjust based on ticket right side width */
+  box-shadow: 0 4px 6px -1px rgba(56, 73, 89, 0.1);
 }
 
 .ticket-main {
@@ -250,24 +249,24 @@ ul {
   padding: 1.5rem;
   display: flex;
   gap: 1.5rem;
-  border-right: 2px dashed #475569;
+  border-right: 2px dashed var(--primary-color);
 }
 
 .ticket-side {
-  width: 250px;
+  width: 200px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(236,72,153,0.1) 100%);
+  background: rgba(106, 137, 167, 0.1);
 }
 
 /* Footer Style */
 .footer {
   background: var(--card-bg);
-  border-top: 1px solid #334155;
+  border-top: 1px solid rgba(106, 137, 167, 0.2);
   padding: 3rem 0;
   margin-top: 4rem;
 }

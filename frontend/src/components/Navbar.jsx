@@ -13,13 +13,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={{ background: 'rgba(30, 41, 59, 0.8)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid #334155' }}>
+    <nav style={{ background: 'rgba(66, 161, 202, 1)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid rgba(106, 137, 167, 0.2)' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '4rem' }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.5rem', fontWeight: 'bold' }}>
-          <Film color="#ec4899" />
-          <span>Quick<span style={{ color: '#ec4899' }}>Show</span></span>
+          <Film color="var(--primary-color)" />
+          <span>Quick<span style={{ color: 'var(--primary-color)' }}>Show</span></span>
         </Link>
-        
+
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           {user ? (
             <>
@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="/mybookings" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600 }}>
                 <Ticket size={20} /> My Bookings
               </Link>
-              <button onClick={handleLogout} className="btn" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: '#334155' }}>
+              <button onClick={handleLogout} className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem' }}>
                 <LogOut size={16} /> Logout
               </button>
             </>

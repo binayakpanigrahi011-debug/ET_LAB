@@ -31,25 +31,25 @@ const MovieDetails = () => {
         <img 
           src={movie.poster} 
           alt={movie.title} 
-          style={{ width: '100%', maxWidth: '350px', borderRadius: '1rem', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', objectFit: 'cover' }} 
+          style={{ width: '100%', maxWidth: '350px', borderRadius: '1rem', boxShadow: '0 25px 50px -12px rgba(56, 73, 89, 0.3)', objectFit: 'cover' }} 
           onError={(e) => { e.target.src = 'https://via.placeholder.com/350x550?text=No+Poster' }}
         />
         <div style={{ flex: 1, minWidth: '300px' }}>
           <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', marginBottom: '1rem', lineHeight: '1.2' }}>{movie.title}</h1>
           
           <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#334155', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.9rem' }}>
-              <Film size={18} color="#ec4899" /> {movie.genre}
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(106, 137, 167, 0.2)', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.9rem' }}>
+              <Film size={18} color="var(--primary-color)" /> {movie.genre}
             </span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#334155', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.9rem' }}>
-              <Clock size={18} color="#6366f1" /> {movie.duration}
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(106, 137, 167, 0.2)', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.9rem' }}>
+              <Clock size={18} color="var(--primary-color)" /> {movie.duration}
             </span>
           </div>
 
           {/* Description Section */}
           <div style={{ marginBottom: '2.5rem' }}>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: 'bold', color: 'var(--text-muted)' }}>About the Movie</h3>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e2e8f0' }}>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-color)' }}>
               {movie.description || "No description provided for this movie yet."}
             </p>
           </div>
@@ -64,12 +64,12 @@ const MovieDetails = () => {
       {movie.actors && movie.actors.length > 0 && (
         <div style={{ background: 'var(--card-bg)', padding: '2rem', borderRadius: '1rem' }}>
           <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <Users size={24} color="#6366f1" /> Cast & Crew
+            <Users size={24} color="var(--primary-color)" /> Cast & Crew
           </h3>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             {movie.actors.map((actor, idx) => (
-              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: '#0f172a', padding: '0.75rem 1.5rem', borderRadius: '0.75rem', border: '1px solid #334155' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#334155', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--text-muted)' }}>
+              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: 'var(--bg-color)', padding: '0.75rem 1.5rem', borderRadius: '0.75rem', border: '1px solid var(--primary-color)' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(106, 137, 167, 0.2)', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-color)' }}>
                   {actor.charAt(0)}
                 </div>
                 <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{actor}</span>
